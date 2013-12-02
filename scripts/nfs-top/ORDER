@@ -1,0 +1,2 @@
+/scripts/nfs-top/udev
+[ -e /conf/param.conf ] && . /conf/param.conf
