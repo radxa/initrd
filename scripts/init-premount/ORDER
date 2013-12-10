@@ -1,0 +1,2 @@
+/scripts/init-premount/mtd-by-name.sh
+[ -e /conf/param.conf ] && . /conf/param.conf
