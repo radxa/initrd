@@ -60,7 +60,7 @@ export recovery=
 
 # mdadm needs hostname to be set. This has to be done before the udev rules are called!
 if [ -f "/etc/hostname" ]; then
-        /bin/hostname -b -F /etc/hostname 2>&1 1>/dev/null
+        /bin/hostname -F /etc/hostname 2>&1 1>/dev/null
 fi
 
 # Bring in the main config
@@ -224,6 +224,9 @@ if [ -n "${noresume}" ]; then
 else
 	resume=${RESUME:-}
 fi
+
+# get the serial console if we want to debug
+[ "$debug" = "y" ] && /sbin/getty 115200 ttyFIQ0 &
 
 maybe_break top
 
