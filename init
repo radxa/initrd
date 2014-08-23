@@ -1,7 +1,5 @@
 #!/bin/sh
 
-insmod ./rk30xxnand-3.0.36+.ko
-
 [ -d /dev ] || mkdir -m 0755 /dev
 [ -d /root ] || mkdir -m 0700 /root
 [ -d /sys ] || mkdir /sys
@@ -217,6 +215,12 @@ for x in $(cat /proc/cmdline); do
 		;;
 	esac
 done
+
+case "$ROOT" in
+	*mtd*)
+		insmod /rk30xxnand-3.0.36+.ko
+		;;
+esac
 
 if [ -n "${noresume}" ]; then
 	export noresume
