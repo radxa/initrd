@@ -13,6 +13,8 @@ pre_mountroot()
 	fi
 
 	while [ -z "${FSTYPE}" ]; do
+		break
+	
 		FSTYPE=$(wait-for-root "${ROOT}" ${ROOTDELAY:-30})
 
 		# Load ubi with the correct MTD partition and return since
