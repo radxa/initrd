@@ -1,5 +1,10 @@
 #!/bin/sh
 
+insmod font.ko
+insmod softcursor.ko
+insmod bitblit.ko
+insmod fbcon.ko
+
 [ -d /dev ] || mkdir -m 0755 /dev
 [ -d /root ] || mkdir -m 0700 /root
 [ -d /sys ] || mkdir /sys
